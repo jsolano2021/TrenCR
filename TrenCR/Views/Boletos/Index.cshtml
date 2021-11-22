@@ -1,0 +1,76 @@
+﻿@model TrenCR.Models.Ruta
+
+
+@{
+    Layout = "_UsuarioLayout";
+    ViewData["Title"] = "Inicio";
+}
+
+<h1 class="alert alert-info" role="alert">Horarios</h1>
+
+<div class="row">
+
+    <form class="form-inline" asp-action="GetHorarios">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="input-group ml-3">
+            <label class="control-label">Ruta </label>
+            <select asp-for="Id" class="form-control" asp-items="ViewBag.Rutas"></select>
+        </div>
+
+        <div class="input-group ml-3">
+            <input type="submit" value="Consultar" class="btn btn-primary" />
+        </div>  
+    </form>
+
+    
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            @if (ViewBag.ListaDatos != null)
+            {
+            <table class="table">
+                <thead>
+
+                    <tr>
+                        @foreach (Horario item in ViewBag.ListaDatos)
+                        {
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdEstacionRutaNavigation.IdEstacionNavigation.Nombre)
+                            </td>
+
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (Horario item in ViewBag.ListaDatos)
+                        {
+                        <td>
+                            <a asp-action="ComprarBoleto" asp-route-id="@item.Id" class="btn btn-primary">@Html.DisplayFor(modelItem => item.Hora)</a> 
+                        </td>
+                        }
+                    </tr>   
+                </tbody>
+                </table>
+
+            
+
+            }
+            else
+            {
+                <br />
+                <br />
+                <br />
+                <div class="alert alert-warning" role="alert">
+                    <strong>Alerta!</strong> Sin Horarios para esta Ruta
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model TrenCR.Models.Horario
+
+@{
+    ViewData["Title"] = "Comprar Boleto";
+}
+
+<h1 class="alert alert-primary" role="alert">Comprar Boleto</h1>
+
+<div>
+    <form asp-action="ComprarBoleto">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+         
+        <div class="form-group">
+            <label asp-for="IdEstacionRutaNavigation.IdEstacionNavigation.Nombre" class="control-label"></label>
+            <input asp-for="IdEstacionRutaNavigation.IdEstacionNavigation.Nombre" class="form-control" readonly/>
+            <span asp-validation-for="IdEstacionRutaNavigation.IdEstacionNavigation.Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Hora" class="control-label"></label>
+            <input asp-for="Hora" class="form-control" readonly/>
+            <span asp-validation-for="Hora" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Asiento # </label>
+            <input asp-for="Asiento" class="form-control" readonly />
+        </div>
+         
+        <div class="form-group">
+            <input type="submit" value="Comprar Boleto" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<div> 
+    <a asp-action="Index" class="btn btn-outline-warning">Volver</a>
+</div>

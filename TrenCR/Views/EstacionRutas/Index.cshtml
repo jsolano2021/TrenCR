@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TrenCR.Models.EstacionRuta>
+
+@{
+    ViewData["Title"] = "Estaciones X Ruta";
+}
+
+<h1 class="alert alert-primary" role="alert">Gestión de Estaciones Por Ruta</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-lg">Nueva Estación en Ruta</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-warning">
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstacionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRutaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEstacionNavigation.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdRutaNavigation.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalle</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

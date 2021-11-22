@@ -1,0 +1,33 @@
+﻿@model TrenCR.Models.Estacion
+
+@{
+    ViewData["Title"] = "Eliminar Estación";
+}
+
+<h1 class="alert alert-primary" role="alert">Eliminar Estación</h1>
+
+<h3 class="alert alert-danger" role="alert">Esta seguro de Eliminar esta Ruta?</h3>
+
+<div>
+   
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-outline-warning">Volver</a>
+    </form>
+</div>

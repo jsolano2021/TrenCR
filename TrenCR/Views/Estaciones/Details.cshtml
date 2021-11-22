@@ -1,0 +1,28 @@
+﻿@model TrenCR.Models.Estacion
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<h1 class="alert alert-primary" role="alert">Detalle</h1>
+
+<div> 
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a> 
+    <a asp-action="Index" class="btn btn-outline-warning">Volver</a>
+</div>
